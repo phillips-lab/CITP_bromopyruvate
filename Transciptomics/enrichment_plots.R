@@ -102,7 +102,7 @@ for(i in 1:length(ENS)) {
 
 # Downregulated genes.
 
-WIDTH  <- c(5.4, 5.2, 5, 4.6)
+WIDTH  <- c(5.4, 5.2, 5.1, 4.6)
 HEIGHT <- c(6, 5, 4.1, 3.5)
 
 for(i in 1:length(ENS)) {
@@ -120,9 +120,10 @@ for(i in 1:length(ENS)) {
   
   terms <- unique(dat$Description)
   dat <- subset(en, Description %in% terms)
-  # force plot to show an empty column
+  # force plot to show empty columns
   if(ENS_ABBR[i]=="reactome") {
     dat[nrow(dat)+1,] <- list("Day 8","","",dat$Description[1],"0/0","",0,0,0,"",0)
+    dat[nrow(dat)+1,] <- list("Day 16","","",dat$Description[1],"0/0","",0,0,0,"",0)
   }
   
   p <- make.plot(dat, ENS_ABBR[i], WIDTH[i], HEIGHT[i], "downreg", "\nDownregulated genes")
